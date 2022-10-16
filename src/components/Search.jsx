@@ -1,15 +1,15 @@
 import styled from "styled-components"
 import searchImg from '../assets/icon-search.svg'
 
-const Search = () => {
+const Search = ({isWhite}) => {
   
     const submitHandler = (e)=>{
         e.preventDefault()
     }
   return (
-    <FormContainer onSubmit={submitHandler}>
+    <FormContainer onSubmit={submitHandler} isWhite={isWhite}>
       <label htmlFor="search">
-       <img src={searchImg} alt="Search Image"/>
+       <img src={searchImg} alt="Search"/>
        <input type="search" id="search" placeholder="Search GitHub username..."/>
        <button>Search</button>
       </label>
@@ -20,23 +20,15 @@ const Search = () => {
 export default Search
 
 const FormContainer = styled.form` 
+    margin-top:36px;
     display:flex;
     align-items:center; 
-    background: #FEFEFE;
-    box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+    box-shadow:${props=>props.isWhite ? "0px 16px 30px -10px " : ""};
     border-radius: 15px;
     justify-content:center;
     height:60px;
-    
-    input{
-      border:none;
-      outline:none;
-      font-family:'Space Mono', monospace;
-      font-style: normal;
-      color: #222731;
-      width:184px;
-      font-size:11.1px;
-    }
+    background: ${props => props.isWhite ? '#FEFEFE' : '#1E2A47' };
+
     label{
       display:flex;
       align-items:center;
@@ -44,6 +36,17 @@ const FormContainer = styled.form`
     }
     img{
       cursor:pointer;
+    }
+    input{
+      border:none;
+      outline:none;
+      font-family:'Space Mono';
+      font-style: normal;
+      width:184px;
+      font-size:11.1px;
+      background-color: ${props => props.isWhite ? '#FFFFFF' : '#1E2A47'};
+      color:${props=>props.isWhite ? "#4B6A9B" : "#FFFFFF"}
+
     }
 
     button{

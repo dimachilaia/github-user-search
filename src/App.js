@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Header from './components/Header'
 import Search from './components/Search'
+import SearchUsers from './components/SearchUsers'
 
 const App = () => {
  const [isWhite, setIsWhite] = useState(true)
@@ -9,7 +10,8 @@ const App = () => {
   return (
     <Main isWhite={isWhite}>
         <Header isWhite={isWhite} setIsWhite={setIsWhite}/>
-        <Search />
+        <Search isWhite={isWhite}/>
+        <SearchUsers/>
     </Main>
   )
 }
