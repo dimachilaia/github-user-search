@@ -7,11 +7,17 @@ const App = () => {
  const [isWhite, setIsWhite] = useState(true)
 
   return (
-    <div style={{background:'red'}}>
-        dimv
-    </div>
+    <Main isWhite={isWhite}>
+        <Header isWhite={isWhite} setIsWhite={setIsWhite}/>
+        <Search />
+    </Main>
   )
 }
 
 export default App
 
+const Main = styled.div `
+ height:100vh;
+ background-color: ${props => props.isWhite ? '#F6F8FF' : '#141D2F'};
+ padding: 31px 24px 0 24px;
+`
