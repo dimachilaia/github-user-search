@@ -23,6 +23,7 @@ const App = () => {
 
 export default App
 
+
 const Main = styled.div `
  height:100vh;
  background-color: ${props => props.isWhite ? '#F6F8FF' : '#141D2F'};
