@@ -37,7 +37,8 @@ const Heading = styled.h1`
   line-height: 39px;
   color: #222731;
   margin:0;
-  color:${props=>props.isWhite ? "#222731" : "#FFFFFF"}
+  color:${props=>props.isWhite ? "#222731" : "#FFFFFF"};
+  transition:0.9s;
 `
 const DarkContainer = styled.div`
   display:flex;

@@ -1,18 +1,20 @@
 import styled from "styled-components"
 import searchImg from '../assets/icon-search.svg'
 
-const Search = ({isWhite}) => {
+const Search = ({isWhite,setSearch}) => {
   
     const submitHandler = (e)=>{
         e.preventDefault()
+        setSearch(e.target.search.value)
     }
+
   return (
     <FormContainer onSubmit={submitHandler} isWhite={isWhite}>
       <label htmlFor="search">
        <img src={searchImg} alt="Search"/>
-       <input type="search" id="search" placeholder="Search GitHub username..."/>
-       <button>Search</button>
-      </label>
+       <input type="search" id="search" placeholder="Search GitHub username..." defaultValue="dimachilaia"/>
+       </label>
+       <button type="submit">Search</button>
     </FormContainer>
   )
 }
@@ -28,6 +30,7 @@ const FormContainer = styled.form`
     justify-content:center;
     height:60px;
     background: ${props => props.isWhite ? '#FEFEFE' : '#1E2A47' };
+    transition:0.9s;
 
     label{
       display:flex;
@@ -45,9 +48,26 @@ const FormContainer = styled.form`
       width:184px;
       font-size:11.1px;
       background-color: ${props => props.isWhite ? '#FFFFFF' : '#1E2A47'};
-      color:${props=>props.isWhite ? "#4B6A9B" : "#FFFFFF"}
+      transition:0.9s;
+      color:${props=>props.isWhite ? "#4B6A9B" : "#FFFFFF"};
 
+                &::-ms-clear { display: none; width : 0; height: 0; }
+                &::-ms-reveal { display: none; width : 0; height: 0; }
+                &::-webkit-search-decoration,
+                &::-webkit-search-cancel-button,
+                &::-webkit-search-results-button,
+                &::-webkit-search-results-decoration { display: none; }
+
+    &::placeholder {
+      font-size: 11.5px;
+      line-height: 25px;
+      color: ${props => props.isBlack ? '#FFFFFF' : '#4B6A9B'};
     }
+    &:focus {
+      outline: none;
+    }
+  }
+
 
     button{
        width:80px;
