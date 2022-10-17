@@ -9,14 +9,14 @@ const App = () => {
  const [isWhite, setIsWhite] = useState(true)
  const [search, setSearch] = useState('dimachilaia')
  const [loading, setLoading] = useState(false)
- const [isNoResult, setIsNoResult] = useState(false)
+ const [noResult, setNoResult] = useState(false)
 
   return (
     <Main isWhite={isWhite}>
         <Header isWhite={isWhite} setIsWhite={setIsWhite}/>
-        <Search isWhite={isWhite} setSearch={setSearch} search={search}/>
+        <Search isWhite={isWhite} setSearch={setSearch} search={search} noResult={noResult}/>
         {loading && <Loading/>}
-        <SearchUsers search={search} isWhite={isWhite} setLoading={setLoading}/>
+         <SearchUsers search={search} isWhite={isWhite} setLoading={setLoading} setNoResult={setNoResult} noResult={noResult}/>
     </Main>
   )
 }

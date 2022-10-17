@@ -22,7 +22,7 @@ const Search = ({isWhite,setSearch}) => {
 export default Search
 
 const FormContainer = styled.form` 
-    margin-top:36px;
+    margin-top:24px;
     display:flex;
     align-items:center; 
     box-shadow:${props=>props.isWhite ? "0px 16px 30px -10px " : ""};
