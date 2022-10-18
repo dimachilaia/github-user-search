@@ -22,12 +22,13 @@ const Search = ({isWhite,setSearch}) => {
 export default Search
 
 const FormContainer = styled.form` 
-    margin-top:24px;
+    margin-top:15px;
     display:flex;
     align-items:center; 
     box-shadow:${props=>props.isWhite ? "0px 16px 30px -10px " : ""};
     border-radius: 15px;
-    justify-content:center;
+    justify-content:space-between;
+    padding:1px 10px;
     height:60px;
     background: ${props => props.isWhite ? '#FEFEFE' : '#1E2A47' };
     transition:0.9s;
@@ -35,7 +36,7 @@ const FormContainer = styled.form`
     label{
       display:flex;
       align-items:center;
-      gap:7px;
+      gap:5px;
     }
     img{
       cursor:pointer;
@@ -84,4 +85,15 @@ const FormContainer = styled.form`
     button:hover{
       background-color:#60ABFF;
     }
+
+    @media screen and (min-width: 768px) {
+     display:flex;
+     justify-content:space-between;
+     align-items:center;
+     padding:1px 14px;
+
+     input{
+      font-size:16px;
+     }
+   }
 `

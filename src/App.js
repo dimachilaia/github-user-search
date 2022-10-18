@@ -12,21 +12,39 @@ const App = () => {
  const [noResult, setNoResult] = useState(false)
 
   return (
-    <Main isWhite={isWhite}>
+   <FullContainer isWhite={isWhite}>
+     <Main >
         <Header isWhite={isWhite} setIsWhite={setIsWhite}/>
         <Search isWhite={isWhite} setSearch={setSearch} search={search} noResult={noResult}/>
         {loading && <Loading/>}
          <SearchUsers search={search} isWhite={isWhite} setLoading={setLoading} setNoResult={setNoResult} noResult={noResult}/>
-    </Main>
+      </Main>
+    </FullContainer>
   )
 }
 
 export default App
 
+const FullContainer = styled.div`
+   height:100vh;
+   background-color: ${props => props.isWhite ? '#F6F8FF' : '#141D2F'};
+   transition-duration:0.9s;
+   padding: 31px 24px 0 24px;
+`
 
 const Main = styled.div `
- height:100vh;
- background-color: ${props => props.isWhite ? '#F6F8FF' : '#141D2F'};
- transition-duration:0.9s;
- padding: 31px 24px 0 24px;
+  width:100%;
+  max-width:375px;
+      margin:0 auto;
+
+   @media screen and (min-width: 768px) {
+     width:100%;
+     max-width:600px;
+    }
+
+    @media screen and (min-width: 1024px) {
+     width:100%;
+     max-width:750px;
+    }
+
 `

@@ -38,7 +38,9 @@ const SearchUsers = ({search, isWhite, setLoading, noResult, setNoResult}) => {
           <Name isWhite={isWhite}>{searchedUser.name ? searchedUser.name : ''}
           <p>@{searchedUser.login}</p>
           </Name>
-          <span>Joined {createdAt && createdAt[2]} {createdAt && months[createdAt[1] - 1]} {createdAt && createdAt[0]}</span>
+          <div>
+           <span>Joined {createdAt && createdAt[2]} {createdAt && months[createdAt[1] - 1]} {createdAt && createdAt[0]}</span>
+          </div>
         </Container>
         </MainContainer> 
 
@@ -61,25 +63,25 @@ const SearchUsers = ({search, isWhite, setLoading, noResult, setNoResult}) => {
 
 
         <StaticInformation>
-          <StaticDiv>
-            <img src={mapImage} alt="mapImage"/>
-            <StaticParagraph isWhite={isWhite}>{searchedUser.location}</StaticParagraph>
-          </StaticDiv>
+         <StaticDiv>
+           <img src={mapImage} alt="mapImage"/>
+           <StaticParagraph StaticParagraph isWhite={isWhite}>{searchedUser.location}</StaticParagraph>
+         </StaticDiv>
 
           <StaticDiv>
             <img src={websiteImage} alt="websiteImage"/>
             <StaticParagraph isWhite={isWhite}>{searchedUser.html_url}</StaticParagraph>
-          </StaticDiv>
+            </StaticDiv>
 
          <StaticDiv>
            <img src={twitterImage} alt="twitterImage"/>
            <StaticParagraph isWhite={isWhite}>{searchedUser.twitter_username ? searchedUser.twitter_username : 'Not Available'}</StaticParagraph>
         </StaticDiv>
 
-        <StaticDiv>
+         <StaticDiv>
             <img src={githubImage} alt="githubImage"/>
             <StaticParagraph isWhite={isWhite}>{searchedUser.company ? searchedUser.company : 'Not Available'}</StaticParagraph>
-        </StaticDiv>
+         </StaticDiv>
 
         </StaticInformation>
 
@@ -112,10 +114,18 @@ const MainContainer = styled.div`
       height:78px;
       border-radius:50%;
     }
+    
+    @media screen and (min-width: 768px) {
+     display:flex;
+     img{
+      padding:10px 20px;
+      max-width:120px;
+      height:120px;
+     }
+  }
 `
 const Container = styled.div`
-  display:flex;
-  flex-direction:column;
+  
     p{
       font-size: 12.5px;
       color: #0079FF;
@@ -124,10 +134,34 @@ const Container = styled.div`
       font-size: 12.5px;
       color: #697C9A;
     }
+
+    @media screen and (min-width: 768px) {
+      p{
+        font-size:15px;
+      }
+     }
+
+     @media screen and (min-width: 1024px) {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:90px;
+     }
+     span{
+      font-size:15.05px;
+     }
 `
 const Name = styled.div`
   font-size: 15.2px;
   color:${props=>props.isWhite ? "#2B3442" : "#FFFFFF"};
+
+  @media screen and (min-width: 768px) {
+     font-size:30px;
+     }
+
+     @media screen and (min-width: 1024px) {
+     font-size:35px;
+     }
 `
 
 const Info = styled.div`
@@ -141,7 +175,29 @@ const Info = styled.div`
   height:70px;
   border-radius: 10px;
   text-align:center;
-`
+
+  @media screen and (min-width: 768px) {
+       display:flex;
+       justify-content:space-around;
+       width:488px;
+       margin:0 auto;
+       margin-top:20px;
+       align-items:center;
+       p{
+        line-height: 33px;
+        font-style: normal;
+        font-size: 18px;
+       }
+     }
+     
+  @media screen and (min-width: 1024px) {
+     width:638px;
+    p{
+        font-size: 20px;
+       }
+  }
+  
+    `
 
 const Repos = styled.p`
  font-style: normal;
@@ -163,7 +219,9 @@ p{
 }
 `
 const StaticInformation = styled.div`
- 
+@media screen and (min-width: 768px) {
+     padding:10px 20px;
+  }
 `
 const StaticDiv = styled.div`
   display:flex;
@@ -174,8 +232,8 @@ const StaticDiv = styled.div`
       width:13.75px;
       height:20px;
   }
- 
 `
+
 const StaticParagraph = styled.p`
     font-style: normal;
     font-weight: 400;
@@ -184,4 +242,9 @@ const StaticParagraph = styled.p`
     color: ${props => props.isWhite ? '#2B3442' : '#FFFFFF' };
     font-style:italic;
     font-weight:bold;
+
+    @media screen and (min-width: 768px) {
+     font-size:15px;
+
+  }
 `
