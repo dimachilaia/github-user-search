@@ -26,10 +26,13 @@ const App = () => {
 export default App
 
 const FullContainer = styled.div`
-   height:100vh;
    background-color: ${props => props.isWhite ? '#F6F8FF' : '#141D2F'};
    transition-duration:0.9s;
    padding: 31px 24px 0 24px;
+   display:flex;
+   align-items:center;
+   flex-direction:column;
+   
 `
 
 const Main = styled.div `
