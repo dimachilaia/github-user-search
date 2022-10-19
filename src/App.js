@@ -31,16 +31,13 @@ const FullContainer = styled.div`
    padding: 31px 24px 0 24px;
    display:flex;
    align-items:center;
-   height:100vh;
    flex-direction:column;
-   
-   @media screen and (min-width: 1024px) {
-     height:122vh;
-    }
+   height:auto;
 `
 
 const Main = styled.div `
   width:100%;
+  height:100vh;
   max-width:375px;
       margin:0 auto;
 
